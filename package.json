@@ -1,0 +1,30 @@
+{
+    "name": "technicalchallenge_2ndblock",
+    "version": "1.0.0",
+    "description": "Develop yourself a Notes App for yourself to keep in mind your New Year resolutions and goals. The target user is yourself.",
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Elibabah/technicalChallenge_2ndBlock.git"
+    },
+    "keywords": [
+        "JS",
+        "Vanilla",
+        "Modules",
+        "Firebase"
+    ],
+    "author": "Elibabah",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Elibabah/technicalChallenge_2ndBlock/issues"
+    },
+    "homepage": "https://github.com/Elibabah/technicalChallenge_2ndBlock#readme",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.9.0",
+        "@typescript-eslint/parser": "^5.9.0",
+        "eslint": "^8.6.0"
+    }
+}
