@@ -1,4 +1,4 @@
-import { connected } from "./modules/app.js";
-connected()
-
-alert("main.js connected")
+import { diasPorMes } from "./modules/app.js";
+import { enviarFB } from "./modules/keepData.js"
+diasPorMes()
+enviarFB()
