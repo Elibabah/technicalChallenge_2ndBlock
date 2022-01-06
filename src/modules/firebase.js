@@ -17,3 +17,4 @@ firebase.initializeApp({
 
 // Initialize Firebase
 //const app = initializeApp(firebaseConfig);
+//OK, aquí mis credenciales
