@@ -1,10 +1,16 @@
 import * as module from "./firebase.js"
 
-const db = firebase.firestore();
-//db.collection("metas").add()
+
 
 
 export const enviarFB = () => {
+    const db = firebase.firestore();
+    //db.collection("metas").add()
+
+    const saveMeta = (obj) => {
+        db.collection("metas").doc().set(obj);
+    };
+
     let botonEnviarMeta = document.getElementById("enviarMeta")
 
     botonEnviarMeta.addEventListener("click", async(e) => {
@@ -16,5 +22,10 @@ export const enviarFB = () => {
             "dia": document.getElementById("diaChoose").value
         }
         console.log(metaObject)
+
+        e.preventDefault();
+        await saveMeta(metaObject);
+
+
     })
 }
