@@ -1,66 +1,41 @@
-# Technical Challenge
+# Agenda propósitos 2022
+
 ---
+
 Index
 
-    1. Description
-    2. Aceptance Criteria
-    3. Technical Requirements
-    4. Expected Learning Outcomes
----
-
-## 1. Description
-
-Develop yourself a Notes App for yourself to keep in mind your New Year resolutions and goals. The target user is yourself.
+    1. Descripción
+    2. Características generales
+    3. Características técnicas
 
 ---
 
-## 2. Acceptance Criteria
+## 1. Descripción
 
-This applications should allow you to enter your goals and objectives with the fields: 
-* Dropdown Selectable Topics: Personal, Professional, Relationships, Family, Health and Learning
-* Title: Input to add a short Title
-* Description: Text Area to add the desciption of the goal
-* Dropdown with the objective month of achievement. 
+Aplicación de notas personal para mantener y controlar mis propósitos y objetivos de Año Nuevo (2022) orientados a mi plan de vida. La app contará con un inicio de sesión personal.
 
 ---
 
-## 3. Technical Requeriments /
-- Follow up all the Software Development Lyfecycle steps and document it
-- Only JavaScript Vanilla is allowed
-- Use all the things you know already and that you have learned from the Bootcamp to solve the application code.
-- Use Firestore from Firebase to keep your data 
-- Only Arrow Functions are allowed (ECS6)
-- Using modular modular architecture is a plus
-- Add a personal login for you is a plus
-- Finishing before the time is a plus
+## 2. Características generales
 
-**CLUES:**
+Esta aplicación me permitirá ingresar mis metas y objetivos con los campos:
 
-- All the knowledge from the last 7 projects
-- Try your best to show the expertise and skills you have earned, tecnical and softskills to reach by your own the entrance to the next stage.
-- This project will be deliviered in a personal demo with the review of the performance during this last stage of the Bootcamp. 
-- The results of this stage will give you a learning position to math teams into the final stages.
-- Make every time desition wiseley 
-- It's time to show up the best you can do!
-
----
-##  4. Expected Learning Outcomes
+- Temas desplegables seleccionables: personal, profesional, relaciones, familia, salud y aprendizaje
+- Título: entrada para agregar un título corto
+- Descripción: Área de texto para agregar la descripción de la meta
+- Desplegable con el mes objetivo de consecución.
 
 ---
 
-- [ ] window object 
-- [ ] Arrow Functions and parameters
-- [ ] Short, readable and reusable code
-- [ ] Objects & Arrays 
+## 3. Características técnicas
+
+- [ ] Arquitectura modular
+- [ ] window object
+- [ ] Arrow Functions y parámetros
+- [ ] Programación funcional (código corto, legible y reutilizable)
+- [ ] Objects & Arrays
 - [ ] JSON
-- [ ] Iterators
-- [ ] Firebase: Firestore DB 
+- [ ] Iteradores
+- [ ] Firebase: Firestore DB
 - [ ] Bootstrap 5
-- [ ] Continuous Integration Tools: Git & GitHub
-
----
-# ReadMe
-
----
-
-> This Readme should be replaced with the project documentation following the SDLC procedures for Agile Software Development Lyfe Cycle.
+- [ ] Herramientas de integración continua: Git y GitHub
