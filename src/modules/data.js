@@ -73,4 +73,24 @@ export const enviarFB = () => {
 
         })
         //    return true;
+
+
+
+    //Traer data de Firebase
+    const getMetas = () => db.collection("metas").get()
+
+    window.addEventListener("DOMContentLoaded", async(e) => {
+        const querySnapshot = await getMetas()
+        querySnapshot.forEach(doc => {
+            console.log(doc.data())
+        });
+    })
+
+
+
+
+
+
+
+
 }
