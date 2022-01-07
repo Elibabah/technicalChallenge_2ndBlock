@@ -87,17 +87,21 @@ export const traerMetas = () => {
     window.addEventListener("DOMContentLoaded", async(e) => {
         const querySnapshot = await getMetas()
         querySnapshot.forEach(doc => {
-            console.log(doc.data())
+            //console.log(doc.data())
+
+            //Pasando data a array
+            const getMetasArray = []
+            getMetasArray.push(doc.data())
+            console.log(getMetasArray)
 
             const cardMeta = document.getElementById("cardPorMeta")
-            const detallesMeta = doc.data()
 
-            cardMeta.innerHTML +=
-
-                `
-
+            //Iterando cada meta desde Array
+            for (const detallesMeta of getMetasArray) {
+                console.log(detallesMeta)
+                cardMeta.innerHTML += `
         <h5 class="card-title">${detallesMeta.tipo}</h5>
-        <img src="https://raw.githubusercontent.com/Elibabah/technicalChallenge_2ndBlock/master/assets/UI/hojas.png" class="card-img-top" alt="...">
+        <img src="" class="card-img-top" alt="imagenTipoMeta">
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">${detallesMeta.titulo}</li>
@@ -111,8 +115,8 @@ export const traerMetas = () => {
             </div>
 
         </div>
-
-`
+        `
+            }
 
 
 
