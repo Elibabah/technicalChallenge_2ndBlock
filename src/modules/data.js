@@ -73,24 +73,55 @@ export const enviarFB = () => {
 
         })
         //    return true;
+}
 
 
 
-    //Traer data de Firebase
+//Traer data de Firebase
+export const traerMetas = () => {
+
+    const db = firebase.firestore();
+
     const getMetas = () => db.collection("metas").get()
 
     window.addEventListener("DOMContentLoaded", async(e) => {
         const querySnapshot = await getMetas()
         querySnapshot.forEach(doc => {
             console.log(doc.data())
+
+            const cardMeta = document.getElementById("cardPorMeta")
+            const detallesMeta = doc.data()
+
+            cardMeta.innerHTML +=
+
+                `
+
+        <h5 class="card-title">${detallesMeta.tipo}</h5>
+        <img src="https://raw.githubusercontent.com/Elibabah/technicalChallenge_2ndBlock/master/assets/UI/hojas.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">${detallesMeta.titulo}</li>
+                <li class="list-group-item">${detallesMeta.descripcion}</li>
+                <li class="list-group-item">${detallesMeta.mes}${detallesMeta.dia}</li>
+            </ul>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+            <div>
+                <button type="button" class="btn btn-secundary">Eliminar</button>
+                <button type="button" class="btn btn-primary">Editar</button>
+            </div>
+
+        </div>
+
+`
+
+
+
+
+
+
+
+
+
         });
     })
-
-
-
-
-
-
-
-
 }
