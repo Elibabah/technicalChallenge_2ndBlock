@@ -25,7 +25,10 @@ export const enviarFB = () => {
 
         e.preventDefault();
         await saveMeta(metaObject);
-
-
+        setTimeout(() => {
+            alert("¡Meta creada!")
+            window.location.href = "./index.html";
+        }, 1100);
+        //data-bs-dismiss="modal"
     })
 }
