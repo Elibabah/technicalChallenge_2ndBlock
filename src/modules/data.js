@@ -83,6 +83,8 @@ export const traerMetas = () => {
     const db = firebase.firestore();
 
     const getMetas = () => db.collection("metas").get()
+    const getMetasArray = [];
+    const deleteMeta = id => db.collection("metas").doc(id).delete();
 
     window.addEventListener("DOMContentLoaded", async(e) => {
         const querySnapshot = await getMetas()
@@ -92,7 +94,7 @@ export const traerMetas = () => {
             //console.log(doc.id)
 
             //Pasando data a array
-            const getMetasArray = []
+
 
             let datosMeta = doc.data()
             datosMeta.id = doc.id
@@ -125,8 +127,9 @@ export const traerMetas = () => {
 
                 const btnsDelete = document.querySelectorAll(".btn-delete")
                 btnsDelete.forEach(btn => {
-                    btn.addEventListener("click", (e) => {
-                        console.log(e.target)
+                    btn.addEventListener("click", async(e) => {
+                        //console.log(e.target.dataset.id)
+                        await deleteMeta(e.target.dataset.id)
                     })
                 })
             }
