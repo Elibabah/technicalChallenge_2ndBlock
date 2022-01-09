@@ -82,8 +82,7 @@ export const traerMetas = () => {
 
     const db = firebase.firestore();
 
-    const getMetas = () => db.collection("metas").get()
-    const getMetasArray = [];
+    let getMetasArray = [];
     let cardMeta = document.getElementById("cardPorMeta")
     const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
     const deleteMeta = id => db.collection("metas").doc(id).delete();
@@ -93,9 +92,7 @@ export const traerMetas = () => {
         //Función para obtener data en tiempo real con onGetMetas
         onGetMetas((querySnapshot) => {
 
-            cardMeta.innerHTML = "";
             //cardMeta.innerHTML = "";
-
             querySnapshot.forEach(doc => {
                 //console.log(doc.data())
                 //console.log(doc.id)
@@ -131,11 +128,10 @@ export const traerMetas = () => {
                     btnsDelete.forEach(btn => {
                         btn.addEventListener("click", async(e) => {
                             //console.log(e.target.dataset.id)
+                            //Limpiando array para imprimir
+                            getMetasArray = []
 
                             await deleteMeta(e.target.dataset.id)
-
-
-
                         })
                     })
                 }
