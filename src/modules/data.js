@@ -67,9 +67,9 @@ export const enviarFB = () => {
 
             // Salida de modal después de data enviada 
             setTimeout(() => {
-                alert("¡Meta creada!")
+                //alert("¡Meta creada!")
                 window.location.href = "./index.html";
-            }, 1100);
+            }, 1000);
 
         })
         //    return true;
@@ -82,50 +82,64 @@ export const traerMetas = () => {
 
     const db = firebase.firestore();
 
-    const getMetas = () => db.collection("metas").get()
+    let getMetasArray = [];
+    const cardMeta = document.getElementById("cardPorMeta")
+    const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
+    const deleteMeta = id => db.collection("metas").doc(id).delete();
 
     window.addEventListener("DOMContentLoaded", async(e) => {
-        const querySnapshot = await getMetas()
-        querySnapshot.forEach(doc => {
-            //console.log(doc.data())
 
-            //Pasando data a array
-            const getMetasArray = []
-            getMetasArray.push(doc.data())
-            console.log(getMetasArray)
+        //Función para obtener data en tiempo real con onGetMetas
+        onGetMetas((querySnapshot) => {
 
-            const cardMeta = document.getElementById("cardPorMeta")
+            //cardMeta.innerHTML = "";
+            querySnapshot.forEach(doc => {
+                //console.log(doc.data())
+                //console.log(doc.id)
 
-            //Iterando cada meta desde Array
-            for (const detallesMeta of getMetasArray) {
-                console.log(detallesMeta)
-                cardMeta.innerHTML += `
+                //Pasando data a array
+                let datosMeta = doc.data()
+                datosMeta.id = doc.id
+                getMetasArray.push(datosMeta)
+                console.log(getMetasArray)
+
+                //Iterando cada meta desde Array
+                cardMeta.innerHTML = "";
+                for (const detallesMeta of getMetasArray) {
+                    console.log(detallesMeta)
+                    cardMeta.innerHTML += `
         <h5 class="card-title">${detallesMeta.tipo}</h5>
         <img src="" class="card-img-top" alt="imagenTipoMeta">
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">${detallesMeta.titulo}</li>
                 <li class="list-group-item">${detallesMeta.descripcion}</li>
-                <li class="list-group-item">${detallesMeta.mes}${detallesMeta.dia}</li>
+                <li class="list-group-item">${detallesMeta.mes} ${detallesMeta.dia}</li>
             </ul>
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
             <div>
-                <button type="button" class="btn btn-secundary">Eliminar</button>
+                <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Eliminar</button>
                 <button type="button" class="btn btn-primary">Editar</button>
             </div>
 
         </div>
         `
-            }
+                    const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                    btnsDelete.forEach(btn => {
+                        btn.addEventListener("click", async(e) => {
+                            //console.log(e.target.dataset.id)
+                            //Limpiando array para imprimir
+                            getMetasArray = []
+
+                            await deleteMeta(e.target.dataset.id)
+                        })
+                    })
+                }
+            });
+        })
 
 
 
-
-
-
-
-
-
-        });
     })
 }
