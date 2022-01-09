@@ -66,10 +66,10 @@ export const enviarFB = () => {
             botonCerrarModal.disabled = true;
 
             // Salida de modal después de data enviada 
-            /*setTimeout(() => {
-                alert("¡Meta creada!")
+            setTimeout(() => {
+                //alert("¡Meta creada!")
                 window.location.href = "./index.html";
-            }, 1100);*/
+            }, 1000);
 
         })
         //    return true;
@@ -83,7 +83,7 @@ export const traerMetas = () => {
     const db = firebase.firestore();
 
     let getMetasArray = [];
-    let cardMeta = document.getElementById("cardPorMeta")
+    const cardMeta = document.getElementById("cardPorMeta")
     const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
     const deleteMeta = id => db.collection("metas").doc(id).delete();
 
@@ -96,7 +96,7 @@ export const traerMetas = () => {
             querySnapshot.forEach(doc => {
                 //console.log(doc.data())
                 //console.log(doc.id)
-                cardMeta.innerHTML = "";
+
                 //Pasando data a array
                 let datosMeta = doc.data()
                 datosMeta.id = doc.id
@@ -104,6 +104,7 @@ export const traerMetas = () => {
                 console.log(getMetasArray)
 
                 //Iterando cada meta desde Array
+                cardMeta.innerHTML = "";
                 for (const detallesMeta of getMetasArray) {
                     console.log(detallesMeta)
                     cardMeta.innerHTML += `
