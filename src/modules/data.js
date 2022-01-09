@@ -66,10 +66,10 @@ export const enviarFB = () => {
             botonCerrarModal.disabled = true;
 
             // Salida de modal después de data enviada 
-            setTimeout(() => {
+            /*setTimeout(() => {
                 alert("¡Meta creada!")
                 window.location.href = "./index.html";
-            }, 1100);
+            }, 1100);*/
 
         })
         //    return true;
@@ -84,29 +84,32 @@ export const traerMetas = () => {
 
     const getMetas = () => db.collection("metas").get()
     const getMetasArray = [];
+    let cardMeta = document.getElementById("cardPorMeta")
+    const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
     const deleteMeta = id => db.collection("metas").doc(id).delete();
 
     window.addEventListener("DOMContentLoaded", async(e) => {
-        const querySnapshot = await getMetas()
-        querySnapshot.forEach(doc => {
 
-            //console.log(doc.data())
-            //console.log(doc.id)
+        //Función para obtener data en tiempo real con onGetMetas
+        onGetMetas((querySnapshot) => {
 
-            //Pasando data a array
+            cardMeta.innerHTML = "";
+            //cardMeta.innerHTML = "";
 
+            querySnapshot.forEach(doc => {
+                //console.log(doc.data())
+                //console.log(doc.id)
+                cardMeta.innerHTML = "";
+                //Pasando data a array
+                let datosMeta = doc.data()
+                datosMeta.id = doc.id
+                getMetasArray.push(datosMeta)
+                console.log(getMetasArray)
 
-            let datosMeta = doc.data()
-            datosMeta.id = doc.id
-            getMetasArray.push(datosMeta)
-            console.log(getMetasArray)
-
-            const cardMeta = document.getElementById("cardPorMeta")
-
-            //Iterando cada meta desde Array
-            for (const detallesMeta of getMetasArray) {
-                console.log(detallesMeta)
-                cardMeta.innerHTML += `
+                //Iterando cada meta desde Array
+                for (const detallesMeta of getMetasArray) {
+                    console.log(detallesMeta)
+                    cardMeta.innerHTML += `
         <h5 class="card-title">${detallesMeta.tipo}</h5>
         <img src="" class="card-img-top" alt="imagenTipoMeta">
         <div class="card-body">
@@ -123,25 +126,23 @@ export const traerMetas = () => {
 
         </div>
         `
+                    const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                    btnsDelete.forEach(btn => {
+                        btn.addEventListener("click", async(e) => {
+                            //console.log(e.target.dataset.id)
+
+                            await deleteMeta(e.target.dataset.id)
 
 
-                const btnsDelete = document.querySelectorAll(".btn-delete")
-                btnsDelete.forEach(btn => {
-                    btn.addEventListener("click", async(e) => {
-                        //console.log(e.target.dataset.id)
-                        await deleteMeta(e.target.dataset.id)
+
+                        })
                     })
-                })
-            }
+                }
+            });
+        })
 
 
 
-
-
-
-
-
-
-        });
     })
 }
