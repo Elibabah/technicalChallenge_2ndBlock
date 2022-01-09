@@ -87,11 +87,16 @@ export const traerMetas = () => {
     window.addEventListener("DOMContentLoaded", async(e) => {
         const querySnapshot = await getMetas()
         querySnapshot.forEach(doc => {
+
             //console.log(doc.data())
+            //console.log(doc.id)
 
             //Pasando data a array
             const getMetasArray = []
-            getMetasArray.push(doc.data())
+
+            let datosMeta = doc.data()
+            datosMeta.id = doc.id
+            getMetasArray.push(datosMeta)
             console.log(getMetasArray)
 
             const cardMeta = document.getElementById("cardPorMeta")
@@ -106,16 +111,24 @@ export const traerMetas = () => {
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">${detallesMeta.titulo}</li>
                 <li class="list-group-item">${detallesMeta.descripcion}</li>
-                <li class="list-group-item">${detallesMeta.mes}${detallesMeta.dia}</li>
+                <li class="list-group-item">${detallesMeta.mes} ${detallesMeta.dia}</li>
             </ul>
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
             <div>
-                <button type="button" class="btn btn-secundary">Eliminar</button>
+                <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Eliminar</button>
                 <button type="button" class="btn btn-primary">Editar</button>
             </div>
 
         </div>
         `
+
+
+                const btnsDelete = document.querySelectorAll(".btn-delete")
+                btnsDelete.forEach(btn => {
+                    btn.addEventListener("click", (e) => {
+                        console.log(e.target)
+                    })
+                })
             }
 
 
