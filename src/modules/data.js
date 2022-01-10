@@ -11,14 +11,16 @@ export const enviarFB = () => {
         db.collection("metas").doc().set(obj);
     };
 
+    const metaForm = document.getElementById("metaForm")
     let botonEnviarMeta = document.getElementById("enviarMeta")
     let botonCerrarModal = document.getElementById("cerrarModal")
 
-    /*let tipo = document.getElementById("tipo").value
-    let titulo = document.getElementById("titulo").value
-    let descripcion = document.getElementById("descripcion").value
-    let mes = document.getElementById("mesChoose").value
-    let dia = document.getElementById("diaChoose").value*/
+
+    /*    let tipo = document.getElementById("tipo").value
+        let titulo = document.getElementById("titulo").value
+        let descripcion = document.getElementById("descripcion").value
+        let mes = document.getElementById("mesChoose").value
+        let dia = document.getElementById("diaChoose").value*/
 
     // Botón enviar meta creada
     botonEnviarMeta.addEventListener("click", async(e) => {
@@ -48,18 +50,30 @@ export const enviarFB = () => {
                 }*/
 
             //Modelado de objeto
-            let metaObject = {
+            /*let metaObject = {
                 "tipo": document.getElementById("tipo").value,
                 "titulo": document.getElementById("titulo").value,
                 "descripcion": document.getElementById("descripcion").value,
                 "mes": document.getElementById("mesChoose").value,
                 "dia": document.getElementById("diaChoose").value
             }
-            console.log(metaObject)
+            console.log(metaObject)*/
 
             //Activar función de guardado de objeto y envío a firebase
             e.preventDefault();
-            await saveMeta(metaObject);
+            await saveMeta(
+
+
+                {
+                    "tipo": document.getElementById("tipo").value,
+                    "titulo": document.getElementById("titulo").value,
+                    "descripcion": document.getElementById("descripcion").value,
+                    "mes": document.getElementById("mesChoose").value,
+                    "dia": document.getElementById("diaChoose").value
+                }
+
+
+            );
 
             // Desactivar botones mientras se envía data a firebase
             botonEnviarMeta.disabled = true;
@@ -73,14 +87,14 @@ export const enviarFB = () => {
 
         })
         //    return true;
-}
 
 
 
-//Traer data de Firebase
-export const traerMetas = () => {
 
-    const db = firebase.firestore();
+    //Traer data de Firebase
+    //const traerMetas = () => {
+
+    //const db = firebase.firestore();
 
     let getMetasArray = [];
     const cardMeta = document.getElementById("cardPorMeta")
@@ -89,26 +103,26 @@ export const traerMetas = () => {
     const editMeta = (id) => db.collection("metas").doc(id).get()
 
     window.addEventListener("DOMContentLoaded", async(e) => {
-        cardMeta.innerHTML = "";
-        //Función para obtener data en tiempo real con onGetMetas
-        onGetMetas((querySnapshot) => {
+            cardMeta.innerHTML = "";
+            //Función para obtener data en tiempo real con onGetMetas
+            onGetMetas((querySnapshot) => {
 
-            //cardMeta.innerHTML = "";
-            querySnapshot.forEach(doc => {
-                //console.log(doc.data())
-                //console.log(doc.id)
+                //cardMeta.innerHTML = "";
+                querySnapshot.forEach(doc => {
+                    //console.log(doc.data())
+                    //console.log(doc.id)
 
-                //Pasando data a array
-                let datosMeta = doc.data()
-                datosMeta.id = doc.id
-                getMetasArray.push(datosMeta)
-                console.log(getMetasArray)
+                    //Pasando data a array
+                    let datosMeta = doc.data()
+                    datosMeta.id = doc.id
+                    getMetasArray.push(datosMeta)
+                    console.log(getMetasArray)
 
-                //Iterando cada meta desde Array
-                cardMeta.innerHTML = "";
-                for (const detallesMeta of getMetasArray) {
-                    console.log(detallesMeta)
-                    cardMeta.innerHTML += `
+                    //Iterando cada meta desde Array
+                    cardMeta.innerHTML = "";
+                    for (const detallesMeta of getMetasArray) {
+                        console.log(detallesMeta)
+                        cardMeta.innerHTML += `
         <h5 class="card-title">${detallesMeta.tipo}</h5>
         <img src="" class="card-img-top" alt="imagenTipoMeta">
         <div class="card-body">
@@ -125,41 +139,45 @@ export const traerMetas = () => {
 
         </div>
         `
-                        //Eliminar
-                    const btnsDelete = document.querySelectorAll(".btn-delete")
+                            //Eliminar
+                        const btnsDelete = document.querySelectorAll(".btn-delete")
 
-                    btnsDelete.forEach(btn => {
-                        btn.addEventListener("click", async(e) => {
-                            //console.log(e.target.dataset.id)
-                            //Limpiando para imprimir
-                            getMetasArray = []
-                            cardMeta.innerHTML = "";
+                        btnsDelete.forEach(btn => {
+                            btn.addEventListener("click", async(e) => {
+                                //console.log(e.target.dataset.id)
+                                //Limpiando para imprimir
+                                getMetasArray = []
+                                cardMeta.innerHTML = "";
 
-                            await deleteMeta(e.target.dataset.id)
+                                await deleteMeta(e.target.dataset.id)
+                            })
                         })
-                    })
 
-                    //Editar
-                    const btnsEdit = document.querySelectorAll(".btn-edit")
+                        //Editar
+                        const btnsEdit = document.querySelectorAll(".btn-edit")
 
-                    btnsEdit.forEach(btn => {
-                        btn.addEventListener("click", async(e) => {
-                            //console.log("editing" + e.target.dataset.id)
-                            const doc = await editMeta(e.target.dataset.id)
-                            console.log(doc.data())
-                                //Limpiando array para imprimir
-                            getMetasArray = []
+                        btnsEdit.forEach(btn => {
+                            btn.addEventListener("click", async(e) => {
+                                //console.log("editing" + e.target.dataset.id)
+                                const doc = await editMeta(e.target.dataset.id)
+                                console.log(doc.data())
 
+                                let editar = doc.data()
+
+                                tipo.value = editar.tipo
+                                titulo.value = editar.titulo
+                                descripcion.value = editar.descripcion
+                                    //mes.value = editar.mes
+                                    //dia.value = editar.dia
+                            })
                         })
-                    })
+
+                    }
+                });
+            })
 
 
 
-                }
-            });
         })
-
-
-
-    })
+        // }
 }
