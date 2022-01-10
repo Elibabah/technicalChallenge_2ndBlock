@@ -1,6 +1,6 @@
 import * as module from "./firebase.js"
 
-
+import { diasPorMes } from "./app.js";
 
 
 export const enviarFB = () => {
@@ -18,11 +18,16 @@ export const enviarFB = () => {
     let id = ""
 
 
-    /*    let tipo = document.getElementById("tipo").value
-        let titulo = document.getElementById("titulo").value
-        let descripcion = document.getElementById("descripcion").value
-        let mes = document.getElementById("mesChoose").value
-        let dia = document.getElementById("diaChoose").value*/
+    let getMetasArray = [];
+    const cardMeta = document.getElementById("cardPorMeta")
+    const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
+    const deleteMeta = id => db.collection("metas").doc(id).delete();
+    const editMeta = (id) => db.collection("metas").doc(id).get()
+        /*    let tipo = document.getElementById("tipo").value
+            let titulo = document.getElementById("titulo").value
+            let descripcion = document.getElementById("descripcion").value*/
+    let mes = document.getElementById("mesChoose").value
+    let dia = document.getElementById("diaChoose").value
 
     // Botón enviar meta creada
     botonEnviarMeta.addEventListener("click", async(e) => {
@@ -80,14 +85,29 @@ export const enviarFB = () => {
                 );
 
                 // Desactivar botones mientras se envía data a firebase
-                botonEnviarMeta.disabled = true;
-                botonCerrarModal.disabled = true;
+                //botonEnviarMeta.disabled = true;
+                //botonCerrarModal.disabled = true;
+
+
+                getMetasArray = [];
+                //cardMeta.innerHTML = "";
+                tipo.value = "Selecciona tu tipo de meta";
+                titulo.value = "";
+                descripcion.value = "";
+                /*mes.value = "Selecciona un mes objetivo";
+                dia.value = "Selecciona un día";*/
+                diasPorMes()
+                let imprimirDia = document.getElementById("diaChoose")
+                imprimirDia.innerHTML = ""
+                imprimirDia.innerHTML += `  
+                    <option value="${dia}">${dia}</option>
+                `;
 
                 // Salida de modal después de data enviada 
-                setTimeout(() => {
+                /*setTimeout(() => {
                     //alert("¡Meta creada!")
                     window.location.href = "./index.html";
-                }, 1000);
+                }, 1000);*/
             } else {
                 await updateMeta(id, {
 
@@ -123,11 +143,11 @@ export const enviarFB = () => {
 
     //const db = firebase.firestore();
 
-    let getMetasArray = [];
-    const cardMeta = document.getElementById("cardPorMeta")
-    const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
-    const deleteMeta = id => db.collection("metas").doc(id).delete();
-    const editMeta = (id) => db.collection("metas").doc(id).get()
+    /* let getMetasArray = [];
+     const cardMeta = document.getElementById("cardPorMeta")
+     const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
+     const deleteMeta = id => db.collection("metas").doc(id).delete();
+     const editMeta = (id) => db.collection("metas").doc(id).get()*/
 
     window.addEventListener("DOMContentLoaded", async(e) => {
             cardMeta.innerHTML = "";
