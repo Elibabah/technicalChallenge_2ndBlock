@@ -14,6 +14,7 @@ export const enviarFB = () => {
     const metaForm = document.getElementById("metaForm")
     let botonEnviarMeta = document.getElementById("enviarMeta")
     let botonCerrarModal = document.getElementById("cerrarModal")
+    let editStatus = false;
 
 
     /*    let tipo = document.getElementById("tipo").value
@@ -61,19 +62,27 @@ export const enviarFB = () => {
 
             //Activar función de guardado de objeto y envío a firebase
             e.preventDefault();
-            await saveMeta(
+
+            if (!editStatus) {
+                await saveMeta(
 
 
-                {
-                    "tipo": document.getElementById("tipo").value,
-                    "titulo": document.getElementById("titulo").value,
-                    "descripcion": document.getElementById("descripcion").value,
-                    "mes": document.getElementById("mesChoose").value,
-                    "dia": document.getElementById("diaChoose").value
-                }
+                    {
+                        "tipo": document.getElementById("tipo").value,
+                        "titulo": document.getElementById("titulo").value,
+                        "descripcion": document.getElementById("descripcion").value,
+                        "mes": document.getElementById("mesChoose").value,
+                        "dia": document.getElementById("diaChoose").value
+                    }
 
 
-            );
+                );
+            } else {
+                //botonEnviarMeta.innerText = "Actualizar"
+            }
+
+
+
 
             // Desactivar botones mientras se envía data a firebase
             botonEnviarMeta.disabled = true;
@@ -164,11 +173,14 @@ export const enviarFB = () => {
 
                                 let editar = doc.data()
 
+                                editStatus = true;
+
                                 tipo.value = editar.tipo
                                 titulo.value = editar.titulo
                                 descripcion.value = editar.descripcion
                                     //mes.value = editar.mes
                                     //dia.value = editar.dia
+                                botonEnviarMeta.innerText = "Actualizar"
                             })
                         })
 
