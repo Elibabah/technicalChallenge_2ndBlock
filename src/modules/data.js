@@ -10,11 +10,12 @@ export const enviarFB = () => {
     const saveMeta = (obj) => {
         db.collection("metas").doc().set(obj);
     };
-
+    const updateMeta = (id, updateMeta) => db.collection("metas").doc(id).update(updateMeta);
     const metaForm = document.getElementById("metaForm")
     let botonEnviarMeta = document.getElementById("enviarMeta")
     let botonCerrarModal = document.getElementById("cerrarModal")
     let editStatus = false;
+    let id = ""
 
 
     /*    let tipo = document.getElementById("tipo").value
@@ -78,7 +79,14 @@ export const enviarFB = () => {
 
                 );
             } else {
-                //botonEnviarMeta.innerText = "Actualizar"
+                await updateMeta(id, {
+
+                        tipo: tipo.value,
+                        titulo: titulo.value,
+                        descripcion: descripcion.value
+
+                    })
+                    //botonEnviarMeta.innerText = "Actualizar"
             }
 
 
@@ -174,6 +182,7 @@ export const enviarFB = () => {
                                 let editar = doc.data()
 
                                 editStatus = true;
+                                id = doc.id
 
                                 tipo.value = editar.tipo
                                 titulo.value = editar.titulo
