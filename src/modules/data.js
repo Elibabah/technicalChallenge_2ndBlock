@@ -100,7 +100,11 @@ export const enviarFB = () => {
                 tipo.value = "Selecciona tu tipo de meta";
                 titulo.value = "";
                 descripcion.value = "";
-                //botonEnviarMeta.innerText = "Actualizar"
+
+                editStatus = false;
+                id = "";
+                botonEnviarMeta.innerText = "Crear meta"
+                    //botonEnviarMeta.innerText = "Actualizar"
             }
 
 
