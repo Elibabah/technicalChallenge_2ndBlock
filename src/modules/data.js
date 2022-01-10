@@ -85,11 +85,11 @@ export const traerMetas = () => {
     let getMetasArray = [];
     const cardMeta = document.getElementById("cardPorMeta")
     const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
-    const deleteMeta = (id) => db.collection("metas").doc(id).delete();
+    const deleteMeta = id => db.collection("metas").doc(id).delete();
     const editMeta = (id) => db.collection("metas").doc(id).get()
 
     window.addEventListener("DOMContentLoaded", async(e) => {
-
+        cardMeta.innerHTML = "";
         //Función para obtener data en tiempo real con onGetMetas
         onGetMetas((querySnapshot) => {
 
@@ -131,8 +131,9 @@ export const traerMetas = () => {
                     btnsDelete.forEach(btn => {
                         btn.addEventListener("click", async(e) => {
                             //console.log(e.target.dataset.id)
-                            //Limpiando array para imprimir
+                            //Limpiando para imprimir
                             getMetasArray = []
+                            cardMeta.innerHTML = "";
 
                             await deleteMeta(e.target.dataset.id)
                         })
@@ -147,9 +148,8 @@ export const traerMetas = () => {
                             const doc = await editMeta(e.target.dataset.id)
                             console.log(doc.data())
                                 //Limpiando array para imprimir
-                                //getMetasArray = []
+                            getMetasArray = []
 
-                            //await deleteMeta(e.target.dataset.id)
                         })
                     })
 
