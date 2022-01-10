@@ -11,7 +11,7 @@ export const enviarFB = () => {
         db.collection("metas").doc().set(obj);
     };
     const updateMeta = (id, updateMeta) => db.collection("metas").doc(id).update(updateMeta);
-    const metaForm = document.getElementById("metaForm")
+    let metaForm = document.getElementById("metaForm")
     let botonEnviarMeta = document.getElementById("enviarMeta")
     let botonCerrarModal = document.getElementById("cerrarModal")
     let editStatus = false;
@@ -91,12 +91,16 @@ export const enviarFB = () => {
             } else {
                 await updateMeta(id, {
 
-                        tipo: tipo.value,
-                        titulo: titulo.value,
-                        descripcion: descripcion.value
+                    tipo: tipo.value,
+                    titulo: titulo.value,
+                    descripcion: descripcion.value
 
-                    })
-                    //botonEnviarMeta.innerText = "Actualizar"
+                })
+
+                tipo.value = "Selecciona tu tipo de meta";
+                titulo.value = "";
+                descripcion.value = "";
+                //botonEnviarMeta.innerText = "Actualizar"
             }
 
 
