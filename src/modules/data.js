@@ -176,6 +176,8 @@ export const enviarFB = () => {
                         btnsEdit.forEach(btn => {
                             btn.addEventListener("click", async(e) => {
                                 //console.log("editing" + e.target.dataset.id)
+                                getMetasArray = []
+
                                 const doc = await editMeta(e.target.dataset.id)
                                 console.log(doc.data())
 
