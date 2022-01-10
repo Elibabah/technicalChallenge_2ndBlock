@@ -85,7 +85,8 @@ export const traerMetas = () => {
     let getMetasArray = [];
     const cardMeta = document.getElementById("cardPorMeta")
     const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
-    const deleteMeta = id => db.collection("metas").doc(id).delete();
+    const deleteMeta = (id) => db.collection("metas").doc(id).delete();
+    const editMeta = (id) => db.collection("metas").doc(id).get()
 
     window.addEventListener("DOMContentLoaded", async(e) => {
 
@@ -119,11 +120,12 @@ export const traerMetas = () => {
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
             <div>
                 <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Eliminar</button>
-                <button type="button" class="btn btn-primary">Editar</button>
+                <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
             </div>
 
         </div>
         `
+                        //Eliminar
                     const btnsDelete = document.querySelectorAll(".btn-delete")
 
                     btnsDelete.forEach(btn => {
@@ -135,6 +137,24 @@ export const traerMetas = () => {
                             await deleteMeta(e.target.dataset.id)
                         })
                     })
+
+                    //Editar
+                    const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                    btnsEdit.forEach(btn => {
+                        btn.addEventListener("click", async(e) => {
+                            //console.log("editing" + e.target.dataset.id)
+                            const doc = await editMeta(e.target.dataset.id)
+                            console.log(doc.data())
+                                //Limpiando array para imprimir
+                                //getMetasArray = []
+
+                            //await deleteMeta(e.target.dataset.id)
+                        })
+                    })
+
+
+
                 }
             });
         })
