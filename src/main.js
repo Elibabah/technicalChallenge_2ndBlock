@@ -1,5 +1,5 @@
 import { diasPorMes } from "./modules/app.js";
-import { enviarFB, traerMetas } from "./modules/data.js"
+import { enviarFB } from "./modules/data.js"
 diasPorMes()
 enviarFB()
-traerMetas()
+    //traerMetas()

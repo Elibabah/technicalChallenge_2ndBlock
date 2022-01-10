@@ -33,7 +33,7 @@
 
 
                 <!--Empieza registro nueva meta-->
-                <form action="" id="metaNew" autocomplete="off" class="crearMeta">
+                <!--<form action="" id="metaNew" autocomplete="off" class="crearMeta">
 
                     <select class="form-select" aria-label="Default select example" id="tipo">
                         <option selected>Selecciona tu tipo de meta</option>
@@ -70,12 +70,51 @@
                         <button type="submit" class="btn btn-primary" id="enviarMeta">Crear meta</button>
                     </div>
 
-                </form>
+                </form>-->
                 <!--Termina regitro meta-->
             </div>
         </div>
     </div>
 
+    <!--Empieza registro nueva meta-->
+    <form action="" id="metaForm" autocomplete="off" class="crearMeta">
+
+        <select class="form-select" aria-label="Default select example" id="tipo">
+                        <option selected>Selecciona tu tipo de meta</option>
+                        <option value="Aprendizaje">Aprendizaje</option>
+                        <option value="Familia">Familia</option>
+                        <option value="Idiomas">Idiomas</option>
+                        <option value="Migración">Migración</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Profesional">Profesional</option>
+                        <option value="Relaciones">Relaciones</option>
+                        <option value="Salud">Salud</option>
+                    </select><br>
+
+        <div class="mb-3">
+            <input type="text" class="form-control" id="titulo" placeholder="Dale un nombre a tu meta">
+        </div><br>
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Escribe tu meta" id="descripcion"></textarea>
+            <label for="descripcion">Haz una breve descricpión de tu meta aquí</label>
+        </div><br>
+
+        <select class="form-select" aria-label="Default select example" id="mesChoose">
+                        <option selected>Selecciona un mes objetivo</option>
+                    </select><br>
+
+
+        <select class="form-select" aria-label="Default select example" id="diaChoose">
+                        <option selected>Selecciona un día</option>
+                    </select><br>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cerrarModal">Abandonar</button>
+            <button type="submit" class="btn btn-primary" id="enviarMeta">Crear meta</button>
+        </div>
+
+    </form>
 
     <!--car por meta-->
     <div class="card" style="width: 18rem;" id="cardPorMeta"></div>
