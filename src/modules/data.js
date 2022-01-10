@@ -78,6 +78,16 @@ export const enviarFB = () => {
 
 
                 );
+
+                // Desactivar botones mientras se envía data a firebase
+                botonEnviarMeta.disabled = true;
+                botonCerrarModal.disabled = true;
+
+                // Salida de modal después de data enviada 
+                setTimeout(() => {
+                    //alert("¡Meta creada!")
+                    window.location.href = "./index.html";
+                }, 1000);
             } else {
                 await updateMeta(id, {
 
@@ -92,15 +102,7 @@ export const enviarFB = () => {
 
 
 
-            // Desactivar botones mientras se envía data a firebase
-            botonEnviarMeta.disabled = true;
-            botonCerrarModal.disabled = true;
 
-            // Salida de modal después de data enviada 
-            setTimeout(() => {
-                //alert("¡Meta creada!")
-                window.location.href = "./index.html";
-            }, 1000);
 
         })
         //    return true;
