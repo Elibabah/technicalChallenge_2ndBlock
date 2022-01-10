@@ -1,8 +1,9 @@
-const meses = "../datamonth/month.json";
-
-const mesesArray = []
-
 export const diasPorMes = () => {
+
+
+    const meses = "../datamonth/month.json";
+
+    const mesesArray = []
     fetch(meses)
         .then((response) => response.json())
         .then((data) => {
