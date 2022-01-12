@@ -8,6 +8,7 @@ dashboard {
     padding: 0%;
     column-gap: 0%;
     row-gap: 0%;
+    background-color: cornsilk;
 }
 
 header {
@@ -27,6 +28,7 @@ main {
     grid-area: main;
     text-align: center;
     margin-bottom: 5%;
+    padding: 2%;
 }
 
 meses {
@@ -173,11 +175,40 @@ footer {
     background-color: slategrey;
 }
 
+.ano {
+    margin-top: 2%;
+}
+
+.welcome {
+    font-size: 120%;
+    margin-top: 8%;
+    margin-bottom: 10%;
+}
+
+.fotoUsuario {
+    width: 45%;
+    border-radius: 50%;
+    margin-bottom: 15%;
+}
+
+.creaUnaMeta {
+    margin-bottom: 5%;
+}
+
+.cita {
+    font-style: italic;
+}
+
 #cerrarSesion {
-    width: 50%;
+    width: 10%;
     display: block;
+    margin: auto;
+    position: static;
+    float: right;
     background-color: darkred;
     border-style: none;
+    margin-right: 1%;
+    margin-bottom: 1%;
 }
 
 #cerrarSesion:hover {
@@ -188,9 +219,12 @@ footer {
 /* Formulario */
 
 #metaForm {
-    font-size: 60%;
-    border: solid;
-    padding: 4%;
+    font-size: 66%;
+    padding: 1%;
+    padding-top: 7%;
+    margin-top: 0%;
+    margin-bottom: 20%;
+    margin-left: 7%;
 }
 
 .form-select {
@@ -207,7 +241,9 @@ footer {
 }
 
 #enviarMeta {
-    width: 40%;
+    display: block;
+    margin: auto;
+    width: 60%;
     font-size: 100%;
     background-color: darkred;
     border-style: none;
@@ -217,49 +253,6 @@ footer {
     background-color: firebrick;
 }
 
-
-/*    <dashboard>
-        <header>Header</header>
-        <aside>Aside</aside>
-        <main>Main</main>
-        <analitic>Analítica</analitic>
-        <footer>footer</footer>
-    </dashboard>
-*/
-
-
-/*.crearMeta {
-    display: block;
-    margin: auto;
-    width: 90%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-}*/
-
-
-/*.card-meta {
-    border-style: solid;
-    width: 40%;
-}*/
-
-
-/*#enero,
-#febrero,
-#marzo,
-#abril,
-#mayo,
-#junio,
-#julio,
-#agosto,
-#septiembre,
-#octubre,
-#noviembre,
-#diciembre {
-    width: 20%;
-    height: 95%;
-    font-size: 80%;
-}*/
-
 #card-individual {
     height: 18rem;
     max-width: 300px;
@@ -267,12 +260,6 @@ footer {
     padding: 5%;
     margin-bottom: 3%;
 }
-
-
-/*.descripcion-card {
-    font-size: 0%;
-    background-color: lightseagreen;
-}*/
 
 .card-title {
     font-size: 90%;
