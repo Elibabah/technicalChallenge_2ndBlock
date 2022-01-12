@@ -1,7 +1,62 @@
-.crearMeta {
+/*.crearMeta {
     display: block;
     margin: auto;
     width: 90%;
     margin-top: 2%;
+    margin-bottom: 2%;
+}*/
+
+
+/*.card-meta {
+    border-style: solid;
+    width: 40%;
+}*/
+
+#enero,
+#febrero,
+#marzo,
+#abril,
+#mayo,
+#junio,
+#julio,
+#agosto,
+#septiembre,
+#octubre,
+#noviembre,
+#diciembre {
+    width: 25%;
+    height: 95%;
+    font-size: 80%;
+}
+
+#card-individual {
+    border: solid;
+    padding: 1.5%;
+    margin-bottom: 2%;
+}
+
+.card-title {
+    font-size: 100%;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 0.5%;
+}
+
+.btn-edit {
+    width: 48%;
+    font-size: 100%;
+    float: right;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.btn-delete {
+    width: 48%;
+    font-size: 90%;
+    border-style: solid;
+    border-color: #00F;
+    float: left;
+    text-align: left;
+    color: blue;
     margin-bottom: 2%;
 }
