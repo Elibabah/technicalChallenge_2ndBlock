@@ -343,8 +343,8 @@ export const enviarFB = () => {
         <div id="card-individual">
             <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
             <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
+                <div ><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
+                <div class="descripcion-card"><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
                 <div>
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>

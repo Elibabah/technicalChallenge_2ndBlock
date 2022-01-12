@@ -1,3 +1,218 @@
+dashboard {
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-rows: 0.15fr 2fr 2fr 0.15fr;
+    grid-template-areas: "aside header header" "aside main main" "aside analitica analitica" "footer footer footer";
+    padding: 0%;
+    column-gap: 0%;
+    row-gap: 0%;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    background-color: maroon;
+}
+
+aside {
+    grid-area: aside;
+    text-align: center;
+    padding: 4%;
+}
+
+main {
+    grid-area: main;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+meses {
+    display: grid;
+    width: auto;
+    height: 100%;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    grid-template-rows: 2fr 2fr 2fr;
+    grid-template-areas: "enero febrero marzo abril" "mayo junio julio agosto" "septiembre octubre noviembre diciembre";
+    padding: 0%;
+    column-gap: 1%;
+    row-gap: 1%;
+}
+
+enero {
+    grid-area: enero;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+febrero {
+    grid-area: febrero;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+marzo {
+    grid-area: marzo;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+abril {
+    grid-area: abril;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+mayo {
+    grid-area: mayo;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+junio {
+    grid-area: junio;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+julio {
+    grid-area: julio;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+agosto {
+    grid-area: agosto;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+septiembre {
+    grid-area: septiembre;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+octubre {
+    grid-area: octubre;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+noviembre {
+    grid-area: noviembre;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+diciembre {
+    grid-area: diciembre;
+    text-align: center;
+    border-style: ridge;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.scroll {
+    height: 18rem;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.title-month {
+    position: static;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+hr {
+    display: block;
+    margin: auto;
+    margin-top: 0%;
+    margin-bottom: 2%;
+    height: 100%;
+    width: 90%;
+    background-color: #000;
+}
+
+analitica {
+    grid-area: analitica;
+    text-align: center;
+    background-color: rebeccapurple;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    background-color: slategrey;
+}
+
+#cerrarSesion {
+    width: 50%;
+    display: block;
+}
+
+
+/* Formulario */
+
+#metaForm {
+    font-size: 60%;
+    border: solid;
+    padding: 4%;
+}
+
+.form-select {
+    font-size: 120%;
+}
+
+.form-control::placeholder {
+    font-size: 90%;
+    text-align: left;
+}
+
+#style-for {
+    font-size: 120%;
+}
+
+#enviarMeta {
+    width: 40%;
+    font-size: 100%;
+}
+
+
+/*    <dashboard>
+        <header>Header</header>
+        <aside>Aside</aside>
+        <main>Main</main>
+        <analitic>Analítica</analitic>
+        <footer>footer</footer>
+    </dashboard>
+*/
+
+
 /*.crearMeta {
     display: block;
     margin: auto;
@@ -12,7 +227,8 @@
     width: 40%;
 }*/
 
-#enero,
+
+/*#enero,
 #febrero,
 #marzo,
 #abril,
@@ -24,16 +240,24 @@
 #octubre,
 #noviembre,
 #diciembre {
-    width: 25%;
+    width: 20%;
     height: 95%;
     font-size: 80%;
-}
+}*/
 
 #card-individual {
-    border: solid;
+    height: 18rem;
+    max-width: 300px;
+    border-style: ridge;
     padding: 1.5%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 }
+
+
+/*.descripcion-card {
+    font-size: 0%;
+    background-color: lightseagreen;
+}*/
 
 .card-title {
     font-size: 100%;
@@ -47,6 +271,7 @@
     font-size: 100%;
     float: right;
     text-align: center;
+    margin-top: 5%;
     margin-bottom: 2%;
 }
 
@@ -56,7 +281,8 @@
     border-style: solid;
     border-color: #00F;
     float: left;
-    text-align: left;
+    text-align: center;
     color: blue;
+    margin-top: 5%;
     margin-bottom: 2%;
 }

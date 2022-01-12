@@ -17,23 +17,30 @@
 
 <body>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    + Crear meta
-</button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+    <dashboard>
+        <header>Header</header>
+        <aside>
+
+            <button type="button" class="btn btn-primary" id="cerrarSesion">Salir</button><br><br>
+            <!-- Button trigger modal -->
+            <!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    + Crear meta
+</button>-->
+
+            <!-- Modal -->
+            <!--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">¡Creémos una nueva meta!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                </div>-->
 
 
-                <!--Empieza registro nueva meta-->
-                <!--<form action="" id="metaNew" autocomplete="off" class="crearMeta">
+            <!--Empieza registro nueva meta-->
+            <!--<form action="" id="metaNew" autocomplete="off" class="crearMeta">
 
                     <select class="form-select" aria-label="Default select example" id="tipo">
                         <option selected>Selecciona tu tipo de meta</option>
@@ -71,15 +78,14 @@
                     </div>
 
                 </form>-->
-                <!--Termina regitro meta-->
-            </div>
-        </div>
+            <!--Termina regitro meta-->
+            <!--</div>
     </div>
-
-    <!--Empieza registro nueva meta-->
-    <form action="" id="metaForm" autocomplete="off" class="crearMeta">
-
-        <select class="form-select" aria-label="Default select example" id="tipo">
+    </div>-->
+            <!--Empieza registro nueva meta-->
+            <form action="" id="metaForm" autocomplete="off" class="crearMeta">
+                <camps>
+                    <select class="form-select" aria-label="Default select example" id="tipo">
                         <option selected>Selecciona tu tipo de meta</option>
                         <option value="Aprendizaje">Aprendizaje</option>
                         <option value="Familia">Familia</option>
@@ -91,71 +97,151 @@
                         <option value="Salud">Salud</option>
                     </select><br>
 
-        <div class="mb-3">
-            <input type="text" class="form-control" id="titulo" placeholder="Dale un nombre a tu meta">
-        </div><br>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="titulo" placeholder="Dale un nombre a tu meta">
+                    </div><br>
 
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Escribe tu meta" id="descripcion"></textarea>
-            <label for="descripcion">Haz una breve descricpión de tu meta aquí</label>
-        </div><br>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Escribe tu meta" id="descripcion"></textarea>
+                        <label id="style-for" for="descripcion">Describe de tu meta</label>
+                    </div><br>
 
-        <select class="form-select" aria-label="Default select example" id="mesChoose">
+                    <select class="form-select" aria-label="Default select example" id="mesChoose">
                         <option selected>Selecciona un mes objetivo</option>
                     </select><br>
 
 
-        <select class="form-select" aria-label="Default select example" id="diaChoose">
+                    <select class="form-select" aria-label="Default select example" id="diaChoose">
                         <option selected>Selecciona un día</option>
                     </select><br>
 
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" id="enviarMeta">Crear meta</button>
-        </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="enviarMeta">Crear</button>
+                    </div>
+                </camps>
+            </form>
 
-    </form>
+
+
+
+        </aside>
+        <main>
+            <meses>
+                <enero>
+                    <div class="title-month">Enero</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="enero"></div>
+                    </div>
+                </enero>
+
+                <febrero>
+                    <div class="title-month">Febrero</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="febrero"></div>
+                    </div>
+                </febrero>
+
+                <marzo>
+                    <div class="title-month">Marzo</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="marzo"></div>
+                    </div>
+                </marzo>
+
+                <abril>
+                    <div class="title-month">Abril</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="abril"></div>
+                    </div>
+                </abril>
+
+                <mayo>
+                    <div class="title-month">Mayo</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="mayo"></div>
+                    </div>
+                </mayo>
+
+                <junio>
+                    <div class="title-month">Junio</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="junio"></div>
+                    </div>
+                </junio>
+
+                <julio>
+                    <div class="title-month">Julio</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="julio"></div>
+                    </div>
+                </julio>
+
+                <agosto>
+                    <div class="title-month">Agosto</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="agosto"></div>
+                    </div>
+                </agosto>
+
+                <septiembre>
+                    <div class="title-month">Septiembre</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="septiembre"></div>
+                    </div>
+                </septiembre>
+
+                <octubre>
+                    <div class="title-month">Octubre</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="octubre"></div>
+                    </div>
+                </octubre>
+
+                <noviembre>
+                    <div class="title-month">Noviembre</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="noviembre"></div>
+                    </div>
+                </noviembre>
+
+                <diciembre>
+                    <div class="title-month">Diciembre</div>
+                    <hr>
+                    <div class="scroll">
+                        <div class="card" id="diciembre"></div>
+                    </div>
+                </diciembre>
+            </meses>
+
+        </main>
+        <analitica>Analítica</analitica>
+        <footer>footer</footer>
+    </dashboard>
+
+
+
+
+
+
+
+
+
+
 
     <!--car por meta-->
     <!--<div class="card" style="width: 18rem;" id="cardPorMeta"></div>-->
 
-    <div>
-        <div>Enero
-            <div class="card" id="enero"></div>
-        </div>
-        <div>Febrero
-            <div class="card" id="febrero"></div>
-        </div>
-        <div>Marzo
-            <div class="card" id="marzo"></div>
-        </div>
-        <div>Abril
-            <div class="card" id="abril"></div>
-        </div>
-        <div>Mayo
-            <div class="card" id="mayo"></div>
-        </div>
-        <div>Junio
-            <div class="card" id="junio"></div>
-        </div>
-        <div>Julio
-            <div class="card" id="julio"></div>
-        </div>
-        <div>Agosto
-            <div class="card" id="agosto"></div>
-        </div>
-        <div>Septiembre
-            <div class="card" id="septiembre"></div>
-        </div>
-        <div>Octubre
-            <div class="card" id="octubre"></div>
-        </div>
-        <div>Noviembre
-            <div class="card" id="noviembre"></div>
-        </div>
-        <div>Diciembre
-            <div class="card" id="diciembre"></div>
-        </div>
-    </div>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="./index.js" type="module"></script>
