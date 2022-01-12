@@ -147,8 +147,8 @@ diciembre {
     position: static;
     font-weight: bold;
     font-size: 110%;
-    background-color: maroon;
-    color: #FFF;
+    background-color: darkolivegreen;
+    color: cornsilk;
 }
 
 hr {
@@ -176,6 +176,12 @@ footer {
 #cerrarSesion {
     width: 50%;
     display: block;
+    background-color: darkred;
+    border-style: none;
+}
+
+#cerrarSesion:hover {
+    background-color: firebrick;
 }
 
 
@@ -203,6 +209,12 @@ footer {
 #enviarMeta {
     width: 40%;
     font-size: 100%;
+    background-color: darkred;
+    border-style: none;
+}
+
+#enviarMeta:hover {
+    background-color: firebrick;
 }
 
 
@@ -269,22 +281,33 @@ footer {
 }
 
 .btn-edit {
-    width: 48%;
+    width: 35%;
     font-size: 100%;
     float: right;
     text-align: center;
     margin-top: 5%;
     margin-bottom: 5%;
+    background-color: darkolivegreen;
+    border-style: none;
+}
+
+.btn-edit:hover {
+    background-color: olivedrab;
 }
 
 .btn-delete {
-    width: 48%;
+    width: 35%;
     font-size: 90%;
     border-style: solid;
-    border-color: #00F;
+    border-color: darkolivegreen;
     float: left;
     text-align: center;
-    color: blue;
+    color: darkolivegreen;
     margin-top: 5%;
     margin-bottom: 5%;
+}
+
+.btn-delete:hover {
+    color: #FFF;
+    background-color: olivedrab;
 }
