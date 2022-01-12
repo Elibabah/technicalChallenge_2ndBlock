@@ -172,7 +172,26 @@ analitica {
 footer {
     grid-area: footer;
     text-align: center;
-    background-color: slategrey;
+    align-items: center;
+    color: #FFF;
+    padding-bottom: 0%;
+    font-size: 100%;
+    padding-top: 2.5%;
+    background-color: black;
+    background-size: cover;
+}
+
+#copy {
+    font-size: 50%;
+}
+
+#by {
+    line-height: 100%;
+}
+
+.btn-social {
+    font-size: 100%;
+    margin: 0 2%;
 }
 
 .ano {
