@@ -268,12 +268,13 @@ footer {
 }
 
 .btn-edit {
-    width: 35%;
-    font-size: 100%;
+    width: 27%;
+    font-size: 65%;
     float: right;
     text-align: center;
     margin-top: 5%;
-    margin-bottom: 5%;
+    margin-right: 7%;
+    margin-bottom: 0%;
     background-color: darkolivegreen;
     border-style: none;
 }
@@ -283,15 +284,16 @@ footer {
 }
 
 .btn-delete {
-    width: 35%;
-    font-size: 90%;
+    width: 25%;
+    font-size: 60%;
     border-style: solid;
     border-color: darkolivegreen;
     float: left;
     text-align: center;
     color: darkolivegreen;
     margin-top: 5%;
-    margin-bottom: 5%;
+    margin-left: 7%;
+    margin-bottom: 0%;
 }
 
 .btn-delete:hover {
