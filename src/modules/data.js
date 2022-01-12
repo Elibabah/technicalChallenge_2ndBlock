@@ -226,11 +226,14 @@ export const enviarFB = () => {
                             mesEnero.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -281,11 +284,14 @@ export const enviarFB = () => {
                             mesFebrero.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -341,11 +347,14 @@ export const enviarFB = () => {
                             mesMarzo.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div ><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div class="descripcion-card"><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -399,13 +408,15 @@ export const enviarFB = () => {
                         } else if (detallesMeta.mes === "abril") {
                             mesAbril.innerHTML +=
                                 `
-                                
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -456,11 +467,14 @@ export const enviarFB = () => {
                             mesMayo.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -514,11 +528,14 @@ export const enviarFB = () => {
                             mesJunio.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -570,11 +587,14 @@ export const enviarFB = () => {
                             mesJulio.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -623,11 +643,14 @@ export const enviarFB = () => {
                             mesAgosto.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -676,11 +699,14 @@ export const enviarFB = () => {
                             mesSeptiembre.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -730,11 +756,14 @@ export const enviarFB = () => {
                             mesOctubre.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -784,11 +813,14 @@ export const enviarFB = () => {
                             mesNoviembre.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>
@@ -837,11 +869,14 @@ export const enviarFB = () => {
                             mesDiciembre.innerHTML +=
                                 `
         <div id="card-individual">
-            <h5 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h5>
-            <div class="card-body">
-                <div><b>Título:</b><br> ${detallesMeta.titulo}</div><hr>
-                <div><b>Descripción:</b><br> ${detallesMeta.descripcion}</div><hr>
-                <div>
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
                     <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
                     <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
                 </div>

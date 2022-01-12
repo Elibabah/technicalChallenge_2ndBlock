@@ -249,7 +249,7 @@ footer {
     height: 18rem;
     max-width: 300px;
     border-style: ridge;
-    padding: 1.5%;
+    padding: 5%;
     margin-bottom: 3%;
 }
 
@@ -260,8 +260,7 @@ footer {
 }*/
 
 .card-title {
-    font-size: 100%;
-    font-weight: bold;
+    font-size: 90%;
     text-align: right;
     margin-right: 0.5%;
 }
@@ -272,7 +271,7 @@ footer {
     float: right;
     text-align: center;
     margin-top: 5%;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 }
 
 .btn-delete {
@@ -284,5 +283,5 @@ footer {
     text-align: center;
     color: blue;
     margin-top: 5%;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 }
