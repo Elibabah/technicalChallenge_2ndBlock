@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "Develop yourself a Notes App for yourself to keep in mind your New Year resolutions and goals. The target user is yourself.",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "test": "jest"
     },
