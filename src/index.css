@@ -4,7 +4,7 @@ dashboard {
     height: auto;
     grid-template-columns: 1fr 2fr 2fr;
     grid-template-rows: 0.15fr 2fr 2fr 0.15fr;
-    grid-template-areas: "aside header header" "aside main main" "aside analitica analitica" "footer footer footer";
+    grid-template-areas: "aside header header" "aside main main" "analitica analitica analitica" "footer footer footer";
     padding: 0%;
     column-gap: 0%;
     row-gap: 0%;
@@ -14,6 +14,7 @@ header {
     grid-area: header;
     text-align: center;
     background-color: maroon;
+    color: cornsilk;
 }
 
 aside {
@@ -146,6 +147,8 @@ diciembre {
     position: static;
     font-weight: bold;
     font-size: 110%;
+    background-color: maroon;
+    color: #FFF;
 }
 
 hr {
