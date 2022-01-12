@@ -20,6 +20,23 @@ export const enviarFB = () => {
 
     let getMetasArray = [];
     const cardMeta = document.getElementById("cardPorMeta")
+
+    let mesEnero = document.getElementById("enero")
+    let mesFebrero = document.getElementById("febrero")
+    let mesMarzo = document.getElementById("marzo")
+    let mesAbril = document.getElementById("abril")
+    let mesMayo = document.getElementById("mayo")
+    let mesJunio = document.getElementById("junio")
+    let mesJulio = document.getElementById("julio")
+    let mesAgosto = document.getElementById("agosto")
+    let mesSeptiembre = document.getElementById("septiembre")
+    let mesOctubre = document.getElementById("octubre")
+    let mesNoviembre = document.getElementById("noviembre")
+    let mesDiciembre = document.getElementById("diciembre")
+
+
+
+
     const onGetMetas = (callback) => db.collection("metas").onSnapshot(callback);
     const deleteMeta = id => db.collection("metas").doc(id).delete();
     const editMeta = (id) => db.collection("metas").doc(id).get()
@@ -150,7 +167,19 @@ export const enviarFB = () => {
      const editMeta = (id) => db.collection("metas").doc(id).get()*/
 
     window.addEventListener("DOMContentLoaded", async(e) => {
-            cardMeta.innerHTML = "";
+            mesEnero.innerHTML = "";
+            mesFebrero.innerHTML = "";
+            mesMarzo.innerHTML = "";
+            mesAbril.innerHTML = "";
+            mesMayo.innerHTML = "";
+            mesJunio.innerHTML = "";
+            mesJulio.innerHTML = "";
+            mesAgosto.innerHTML = "";
+            mesSeptiembre.innerHTML = "";
+            mesOctubre.innerHTML = "";
+            mesNoviembre.innerHTML = "";
+            mesDiciembre.innerHTML = "";
+
             //Función para obtener data en tiempo real con onGetMetas
             onGetMetas((querySnapshot) => {
 
@@ -165,67 +194,755 @@ export const enviarFB = () => {
                     getMetasArray.push(datosMeta)
                     console.log(getMetasArray)
 
+
+
+
                     //Iterando cada meta desde Array
-                    cardMeta.innerHTML = "";
+                    mesEnero.innerHTML = "";
+                    mesFebrero.innerHTML = "";
+                    mesMarzo.innerHTML = "";
+                    mesAbril.innerHTML = "";
+                    mesMayo.innerHTML = "";
+                    mesJunio.innerHTML = "";
+                    mesJulio.innerHTML = "";
+                    mesAgosto.innerHTML = "";
+                    mesSeptiembre.innerHTML = "";
+                    mesOctubre.innerHTML = "";
+                    mesNoviembre.innerHTML = "";
+                    mesDiciembre.innerHTML = "";
+
+
+
+
                     for (const detallesMeta of getMetasArray) {
                         console.log(detallesMeta)
-                        cardMeta.innerHTML += `
-        <h5 class="card-title">${detallesMeta.tipo}</h5>
-        <img src="" class="card-img-top" alt="imagenTipoMeta">
-        <div class="card-body">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">${detallesMeta.titulo}</li>
-                <li class="list-group-item">${detallesMeta.descripcion}</li>
-                <li class="list-group-item">${detallesMeta.mes} ${detallesMeta.dia}</li>
-            </ul>
-            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-            <div>
-                <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Eliminar</button>
-                <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
-            </div>
 
+
+
+
+
+
+                        if (detallesMeta.mes === "enero") {
+                            mesEnero.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
         </div>
         `
-                            //Eliminar
-                        const btnsDelete = document.querySelectorAll(".btn-delete")
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
 
-                        btnsDelete.forEach(btn => {
-                            btn.addEventListener("click", async(e) => {
-                                //console.log(e.target.dataset.id)
-                                //Limpiando para imprimir
-                                getMetasArray = []
-                                cardMeta.innerHTML = "";
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesEnero.innerHTML = "";
 
-                                await deleteMeta(e.target.dataset.id)
+                                    await deleteMeta(e.target.dataset.id)
+                                })
                             })
-                        })
 
-                        //Editar
-                        const btnsEdit = document.querySelectorAll(".btn-edit")
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
 
-                        btnsEdit.forEach(btn => {
-                            btn.addEventListener("click", async(e) => {
-                                //console.log("editing" + e.target.dataset.id)
-                                getMetasArray = []
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
 
-                                const doc = await editMeta(e.target.dataset.id)
-                                console.log(doc.data())
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
 
-                                let editar = doc.data()
+                                    let editar = doc.data()
 
-                                editStatus = true;
-                                id = doc.id
+                                    editStatus = true;
+                                    id = doc.id
 
-                                tipo.value = editar.tipo
-                                titulo.value = editar.titulo
-                                descripcion.value = editar.descripcion
-                                    //mes.value = editar.mes
-                                    //dia.value = editar.dia
-                                botonEnviarMeta.innerText = "Actualizar"
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
                             })
-                        })
+                        } else if (detallesMeta.mes === "febrero") {
+
+
+                            mesFebrero.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesFebrero.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+
+
+
+
+
+
+                        } else if (detallesMeta.mes === "marzo") {
+
+                            mesMarzo.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesMarzo.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+
+
+
+
+
+
+                        } else if (detallesMeta.mes === "abril") {
+                            mesAbril.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesAbril.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+
+                        } else if (detallesMeta.mes === "mayo") {
+
+                            mesMayo.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesMayo.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+
+
+
+
+                        } else if (detallesMeta.mes === "junio") {
+
+                            mesJunio.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesJunio.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+
+
+
+                        } else if (detallesMeta.mes === "julio") {
+                            mesJulio.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesJulio.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+                        } else if (detallesMeta.mes === "agosto") {
+                            mesAgosto.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesAgosto.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+                        } else if (detallesMeta.mes === "septiembre") {
+                            mesSeptiembre.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesSeptiembre.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+                        } else if (detallesMeta.mes === "octubre") {
+
+                            mesOctubre.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesOctubre.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+
+                        } else if (detallesMeta.mes === "noviembre") {
+                            mesNoviembre.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesNoviembre.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+                        } else if (detallesMeta.mes === "diciembre") {
+                            mesDiciembre.innerHTML +=
+                                `
+        <div id="card-individual">
+            <h6 class="card-title" id="head-card">${detallesMeta.tipo}<br> Día: ${detallesMeta.dia}</h6>
+     
+                <div>Título</div>
+                <textarea class="form-control" placeholder="${detallesMeta.titulo}"></textarea>    
+    
+                <div>Descripción:</div>
+                <textarea class="form-control" placeholder="${detallesMeta.descripcion}"></textarea>
+                    
+                    <button type="button" class="btn btn-secundary btn-delete" data-id="${detallesMeta.id}">Borrar</button>
+                    <button type="button" class="btn btn-primary btn-edit" data-id="${detallesMeta.id}">Editar</button>
+                </div>
+            </div>
+        </div>
+        `
+                                //Eliminar
+                            const btnsDelete = document.querySelectorAll(".btn-delete")
+
+                            btnsDelete.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log(e.target.dataset.id)
+                                    //Limpiando para imprimir
+                                    getMetasArray = []
+                                    mesDiciembre.innerHTML = "";
+
+                                    await deleteMeta(e.target.dataset.id)
+                                })
+                            })
+
+                            //Editar
+                            const btnsEdit = document.querySelectorAll(".btn-edit")
+
+                            btnsEdit.forEach(btn => {
+                                btn.addEventListener("click", async(e) => {
+                                    //console.log("editing" + e.target.dataset.id)
+                                    getMetasArray = []
+
+                                    const doc = await editMeta(e.target.dataset.id)
+                                    console.log(doc.data())
+
+                                    let editar = doc.data()
+
+                                    editStatus = true;
+                                    id = doc.id
+
+                                    tipo.value = editar.tipo
+                                    titulo.value = editar.titulo
+                                    descripcion.value = editar.descripcion
+                                        //mes.value = editar.mes
+                                        //dia.value = editar.dia
+                                    botonEnviarMeta.innerText = "Actualizar"
+                                })
+                            })
+                        }
+
 
                     }
+
+                    /* let enero = "";
+                     let febrero = "";
+
+
+                     for (const meses of getMetasArray) {
+                         //console.log(meses.mes)
+                         if (meses.mes === "enero") {
+                             enero++
+                             //console.log(febrero)
+                         } else if (meses.mes === "febrero") {
+                             febrero++
+                         } //console.log(febrero)
+
+
+                     }
+                     console.log("enero: " + enero)
+                     console.log("febrero: " + febrero)*/
                 });
             })
 
@@ -233,4 +950,7 @@ export const enviarFB = () => {
 
         })
         // }
+
+
+
 }
