@@ -176,6 +176,7 @@ footer {
 }
 
 .ano {
+    position: static;
     margin-top: 2%;
 }
 
@@ -186,9 +187,13 @@ footer {
 }
 
 .fotoUsuario {
-    width: 45%;
+    width: 40%;
     border-radius: 50%;
     margin-bottom: 15%;
+}
+
+.metaGlobal {
+    margin-bottom: 2%;
 }
 
 .creaUnaMeta {
@@ -221,7 +226,7 @@ footer {
 #metaForm {
     font-size: 66%;
     padding: 1%;
-    padding-top: 7%;
+    padding-top: 5%;
     margin-top: 0%;
     margin-bottom: 20%;
     margin-left: 7%;
@@ -247,6 +252,7 @@ footer {
     font-size: 120%;
     background-color: darkred;
     border-style: none;
+    margin-top: 2%;
 }
 
 #enviarMeta:hover {
