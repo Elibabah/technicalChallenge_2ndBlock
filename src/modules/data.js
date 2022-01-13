@@ -15,7 +15,9 @@ export const enviarFB = () => {
     let botonEnviarMeta = document.getElementById("enviarMeta")
     let botonCerrarModal = document.getElementById("cerrarModal")
     let editStatus = false;
-    let id = ""
+    let id = "";
+    let metasEnMes = [];
+
 
 
     let getMetasArray = [];
@@ -194,7 +196,7 @@ export const enviarFB = () => {
                     getMetasArray.push(datosMeta)
                     console.log(getMetasArray)
 
-
+                    renderGraph()
 
 
                     //Iterando cada meta desde Array
@@ -212,7 +214,9 @@ export const enviarFB = () => {
                     mesDiciembre.innerHTML = "";
 
 
-
+                    for (let i = 0; i < 12; i++) {
+                        metasEnMes[i] = 0;
+                    }
 
                     for (const detallesMeta of getMetasArray) {
                         console.log(detallesMeta)
@@ -223,6 +227,7 @@ export const enviarFB = () => {
 
 
                         if (detallesMeta.mes === "enero") {
+                            metasEnMes[0] += 1;
                             mesEnero.innerHTML +=
                                 `
         <div id="card-individual">
@@ -279,7 +284,7 @@ export const enviarFB = () => {
                                 })
                             })
                         } else if (detallesMeta.mes === "febrero") {
-
+                            metasEnMes[1] += 1;
 
                             mesFebrero.innerHTML +=
                                 `
@@ -343,7 +348,7 @@ export const enviarFB = () => {
 
 
                         } else if (detallesMeta.mes === "marzo") {
-
+                            metasEnMes[2] += 1;
                             mesMarzo.innerHTML +=
                                 `
         <div id="card-individual">
@@ -406,6 +411,7 @@ export const enviarFB = () => {
 
 
                         } else if (detallesMeta.mes === "abril") {
+                            metasEnMes[3] += 1;
                             mesAbril.innerHTML +=
                                 `
         <div id="card-individual">
@@ -463,7 +469,7 @@ export const enviarFB = () => {
                             })
 
                         } else if (detallesMeta.mes === "mayo") {
-
+                            metasEnMes[4] += 1;
                             mesMayo.innerHTML +=
                                 `
         <div id="card-individual">
@@ -524,7 +530,7 @@ export const enviarFB = () => {
 
 
                         } else if (detallesMeta.mes === "junio") {
-
+                            metasEnMes[5] += 1;
                             mesJunio.innerHTML +=
                                 `
         <div id="card-individual">
@@ -584,6 +590,7 @@ export const enviarFB = () => {
 
 
                         } else if (detallesMeta.mes === "julio") {
+                            metasEnMes[6] += 1;
                             mesJulio.innerHTML +=
                                 `
         <div id="card-individual">
@@ -640,6 +647,7 @@ export const enviarFB = () => {
                                 })
                             })
                         } else if (detallesMeta.mes === "agosto") {
+                            metasEnMes[7] += 1
                             mesAgosto.innerHTML +=
                                 `
         <div id="card-individual">
@@ -696,6 +704,7 @@ export const enviarFB = () => {
                                 })
                             })
                         } else if (detallesMeta.mes === "septiembre") {
+                            metasEnMes[8] += 1;
                             mesSeptiembre.innerHTML +=
                                 `
         <div id="card-individual">
@@ -752,7 +761,7 @@ export const enviarFB = () => {
                                 })
                             })
                         } else if (detallesMeta.mes === "octubre") {
-
+                            metasEnMes[9] += 1;
                             mesOctubre.innerHTML +=
                                 `
         <div id="card-individual">
@@ -810,6 +819,7 @@ export const enviarFB = () => {
                             })
 
                         } else if (detallesMeta.mes === "noviembre") {
+                            metasEnMes[10] += 1;
                             mesNoviembre.innerHTML +=
                                 `
         <div id="card-individual">
@@ -866,6 +876,7 @@ export const enviarFB = () => {
                                 })
                             })
                         } else if (detallesMeta.mes === "diciembre") {
+                            metasEnMes[11] += 1;
                             mesDiciembre.innerHTML +=
                                 `
         <div id="card-individual">
@@ -926,31 +937,174 @@ export const enviarFB = () => {
 
                     }
 
-                    /* let enero = "";
-                     let febrero = "";
 
-
-                     for (const meses of getMetasArray) {
-                         //console.log(meses.mes)
-                         if (meses.mes === "enero") {
-                             enero++
-                             //console.log(febrero)
-                         } else if (meses.mes === "febrero") {
-                             febrero++
-                         } //console.log(febrero)
-
-
-                     }
-                     console.log("enero: " + enero)
-                     console.log("febrero: " + febrero)*/
                 });
             })
 
 
+            /*let metasEnMes = [];
 
+            for (let i = 0; i < 12; i++) {
+                metasEnMes[i] = 0;
+            }
+
+            for (let meses of getMetasArray) {
+                console.log(meses.mes)
+                if (meses.mes == "enero") {
+                    metasEnMes[0] += 1;
+                } else if (meses.mes == "febrero") {
+                    metasEnMes[1] += 1;
+                } else if (meses.mes == "marzo") {
+                    metasEnMes[2] += 1;
+                } else if (meses.mes == "abril") {
+                    metasEnMes[3] += 1;
+                } else if (meses.mes == "mayo") {
+                    metasEnMes[4] += 1;
+                } else if (meses.mes == "junio") {
+                    metasEnMes[5] += 1;
+                } else if (meses.mes == "julio") {
+                    metasEnMes[6] += 1;
+                } else if (meses.mes == "agosto") {
+                    metasEnMes[7] += 1;
+                } else if (meses.mes == "septiembre") {
+                    metasEnMes[8] += 1;
+                } else if (meses.mes == "octubre") {
+                    metasEnMes[9] += 1;
+                } else if (meses.mes == "noviembre") {
+                    metasEnMes[10] += 1;
+                } else if (meses.mes == "diciembre") {
+                    metasEnMes[11] += 1;
+                }
+
+            }
+
+            console.log(metasEnMes)*/
+
+            function renderGraph() {
+
+                let meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+                myChart.data.datasets[0].data = metasEnMes; //Y
+                myChart.data.labels = meses; // X
+                myChart.update();
+
+                /* let horas = ["8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"]
+                 myChart2.data.datasets[0].data = visitantesHora; //Y
+                 myChart2.data.labels = horas; // X
+                myChart2.updateMeta();*/
+
+            }
         })
         // }
 
 
 
 }
+
+
+
+
+
+// Chart.defaults.global.defaultFontFamily = "Poppins";
+const ctx = document.getElementById("myChart").getContext("2d");
+const myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: [
+            "enero",
+            "febrero",
+            "marzo",
+            "abril",
+            "mayo",
+            "junio",
+            "julio",
+            "agosto",
+            "septiembre",
+            "octubre",
+            "noviembre",
+            "diciembre",
+        ],
+        datasets: [{
+            label: "Saturación metas",
+            data: [12, 19, 3, 5, 2, 3, 4, 6, 8, 19, 2, 6, 8, 15],
+            backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+            ],
+            borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 2,
+        }, ],
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+            },
+        },
+    },
+});
+///
+///---------------------------------------------------------------------------------------------
+///
+/*const ctx2 = document.getElementById("myChart2").getContext("2d");
+const myChart2 = new Chart(ctx2, {
+    type: "line",
+    data: {
+        labels: [
+            "V Dec 10",
+            "S Dec 11",
+            "D Dec 12",
+            "L Dec 13",
+            "M Dec 14",
+            "X Dec 15",
+            "J Dec 16",
+            "V Dec 17",
+            "S Dec 18",
+            "D Dec 19",
+            "L Dec 20",
+            "M Dec 21",
+            "X Dec 22",
+            "J Dec 23",
+        ],
+        datasets: [{
+            label: "",
+            data: [12, 19, 3, 5, 2, 3, 4, 6, 8, 19, 2, 6, 8, 15],
+            backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+            ],
+            borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 2,
+        }, ],
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+            },
+        },
+    },
+});*/

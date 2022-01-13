@@ -232,7 +232,54 @@
             </meses>
 
         </main>
-        <analitica>Analítica</analitica>
+        <analitica>
+            <div>ANALÍTICA</div>
+
+
+            <!--Gráfica por mes-->
+
+            <div class="graph-card">
+                <h3 class="section-head" id="headGrafica">
+                    Saturación por mes
+                </h3>
+                <div class="graph-content">
+                    <div class="graph-head">
+                        <div class="icon-wrapper">
+
+                        </div>
+                        <div class="graph-select">
+
+                        </div>
+                    </div>
+                    <div class="graph-board">
+                        <canvas id="myChart" width="80%" height="50px"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Gráfica por meta-->
+
+            <!--<div class="graph-card">
+                <h3 class="section-head" id="headGrafica">
+                    Saturación por meta
+                </h3>
+                <div class="graph-content">
+                    <div class="graph-head">
+                        <div class="icon-wrapper">
+
+                        </div>
+                        <div class="graph-select">
+
+                        </div>
+                    </div>
+                    <div class="graph-board">
+                        <canvas id="myChart2" width="80%" height="50px"></canvas>
+                    </div>
+                </div>
+            </div>-->
+
+        </analitica>
         <footer>
             <div id="by">By <i class="far fa-copyright" id="copy"></i>Elibabah
                 <a href="https://github.com/Elibabah" target="_blank" class="btn-social"><i class="fab fa-github"></i></a>
@@ -257,6 +304,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="./index.js" type="module"></script>
+    <!--Script Chart.js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
