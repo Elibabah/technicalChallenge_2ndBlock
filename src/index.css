@@ -211,6 +211,7 @@ footer {
 
 .cita {
     font-style: italic;
+    margin-top: 4%;
 }
 
 #cerrarSesion {
@@ -237,7 +238,7 @@ footer {
     padding: 1%;
     padding-top: 5%;
     margin-top: 0%;
-    margin-bottom: 20%;
+    margin-bottom: 5%;
     margin-left: 7%;
 }
 
