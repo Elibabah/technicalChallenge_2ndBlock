@@ -1,0 +1,105 @@
+login {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 2fr 0.2fr;
+    grid-template-areas: "header header header" "main main main" "footer footer footer";
+    padding: 0%;
+    column-gap: 0%;
+    row-gap: 0%;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    color: cornsilk;
+}
+
+main {
+    grid-area: main;
+    text-align: center;
+    margin-bottom: 5%;
+    padding: 2%;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    align-items: center;
+    color: #FFF;
+    padding-bottom: 0%;
+    font-size: 100%;
+    padding-top: 1.5%;
+    background-color: black;
+    background-size: cover;
+}
+
+#copy {
+    font-size: 50%;
+}
+
+#by {
+    line-height: 100%;
+}
+
+.btn-social {
+    font-size: 100%;
+    margin: 0 2%;
+}
+
+.ano {
+    position: static;
+    margin-top: 2%;
+}
+
+.photoUser {
+    width: 40%;
+    border-radius: 50%;
+    margin-top: 14%;
+    margin-bottom: 5%;
+}
+
+.card-content {
+    display: block;
+    margin: auto;
+    width: 35%;
+    height: 100%;
+    border-radius: 5%;
+    border-style: ridge;
+    background-color: cornsilk;
+}
+
+.entrada {
+    margin-top: 5%;
+    margin-bottom: 8%;
+    text-align: center;
+}
+
+.acceso {
+    width: 60%;
+}
+
+.acceso::placeholder {
+    text-align: center;
+}
+
+hr {
+    width: 70%;
+    display: block;
+    margin: auto;
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+
+.citaUnamuno {
+    font-size: 80%;
+    font-style: italic;
+    margin-bottom: 2%;
+}
+
+.Unamuno {
+    font-size: 80%;
+    text-align: right;
+    margin-right: 15%;
+}
