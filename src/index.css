@@ -7,7 +7,6 @@ dashboard {
     padding: 0%;
     column-gap: 0%;
     row-gap: 0%;
-    background-color: cornsilk;
 }
 
 header {
@@ -318,9 +317,27 @@ footer {
 }
 
 .graph-card {
-    background-color: darkblue;
-    width: 60%;
-    display: block;
-    margin: auto;
+    width: 47%;
+    margin-top: 2%;
+    border-radius: 2%;
+}
+
+.graph-month {
+    float: left;
+    margin-left: 2%;
+}
+
+.graph-kind {
+    float: right;
+    margin-right: 2%;
+}
+
+.analitica {
+    font-size: 120%;
+    margin-bottom: 2%;
+}
+
+#headGrafica {
+    font-size: 119%;
     margin-top: 2%;
 }
