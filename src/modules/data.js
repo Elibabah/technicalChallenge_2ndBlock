@@ -17,6 +17,7 @@ export const enviarFB = () => {
     let editStatus = false;
     let id = "";
     let metasEnMes = [];
+    let saturacionTipoMeta = [];
 
 
 
@@ -936,49 +937,34 @@ export const enviarFB = () => {
 
 
                     }
+                    for (let i = 0; i < 8; i++) {
+                        saturacionTipoMeta[i] = 0;
+                    }
 
-
+                    for (let tipoMeta of getMetasArray) {
+                        //console.log(tipoMeta.tipo)
+                        if (tipoMeta.tipo == "Aprendizaje") {
+                            saturacionTipoMeta[0] += 1;
+                        } else if (tipoMeta.tipo == "Familia") {
+                            saturacionTipoMeta[1] += 1;
+                        } else if (tipoMeta.tipo == "Idiomas") {
+                            saturacionTipoMeta[2] += 1;
+                        } else if (tipoMeta.tipo == "Migración") {
+                            saturacionTipoMeta[3] += 1;
+                        } else if (tipoMeta.tipo == "Personal") {
+                            saturacionTipoMeta[4] += 1;
+                        } else if (tipoMeta.tipo == "Profesional") {
+                            saturacionTipoMeta[5] += 1;
+                        } else if (tipoMeta.tipo == "Relaciones") {
+                            saturacionTipoMeta[6] += 1;
+                        } else if (tipoMeta.tipo == "Salud") {
+                            saturacionTipoMeta[7] += 1;
+                        }
+                    }
+                    console.log(saturacionTipoMeta)
                 });
             })
 
-
-            /*let metasEnMes = [];
-
-            for (let i = 0; i < 12; i++) {
-                metasEnMes[i] = 0;
-            }
-
-            for (let meses of getMetasArray) {
-                console.log(meses.mes)
-                if (meses.mes == "enero") {
-                    metasEnMes[0] += 1;
-                } else if (meses.mes == "febrero") {
-                    metasEnMes[1] += 1;
-                } else if (meses.mes == "marzo") {
-                    metasEnMes[2] += 1;
-                } else if (meses.mes == "abril") {
-                    metasEnMes[3] += 1;
-                } else if (meses.mes == "mayo") {
-                    metasEnMes[4] += 1;
-                } else if (meses.mes == "junio") {
-                    metasEnMes[5] += 1;
-                } else if (meses.mes == "julio") {
-                    metasEnMes[6] += 1;
-                } else if (meses.mes == "agosto") {
-                    metasEnMes[7] += 1;
-                } else if (meses.mes == "septiembre") {
-                    metasEnMes[8] += 1;
-                } else if (meses.mes == "octubre") {
-                    metasEnMes[9] += 1;
-                } else if (meses.mes == "noviembre") {
-                    metasEnMes[10] += 1;
-                } else if (meses.mes == "diciembre") {
-                    metasEnMes[11] += 1;
-                }
-
-            }
-
-            console.log(metasEnMes)*/
 
             function renderGraph() {
 
@@ -987,10 +973,10 @@ export const enviarFB = () => {
                 myChart.data.labels = meses; // X
                 myChart.update();
 
-                /* let horas = ["8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"]
-                 myChart2.data.datasets[0].data = visitantesHora; //Y
-                 myChart2.data.labels = horas; // X
-                myChart2.updateMeta();*/
+                let metaTipo = ["Aprendizaje", "Familia", "Idiomas", "Migración", "Personal", "Profesional", "Relaciones", "Salud"]
+                myChart2.data.datasets[0].data = saturacionTipoMeta; //Y
+                myChart2.data.labels = metaTipo; // X
+                myChart2.update();
 
             }
         })
@@ -1007,7 +993,7 @@ export const enviarFB = () => {
 // Chart.defaults.global.defaultFontFamily = "Poppins";
 const ctx = document.getElementById("myChart").getContext("2d");
 const myChart = new Chart(ctx, {
-    type: "bar",
+    type: "line",
     data: {
         labels: [
             "enero",
@@ -1057,28 +1043,22 @@ const myChart = new Chart(ctx, {
 ///
 ///---------------------------------------------------------------------------------------------
 ///
-/*const ctx2 = document.getElementById("myChart2").getContext("2d");
+const ctx2 = document.getElementById("myChart2").getContext("2d");
 const myChart2 = new Chart(ctx2, {
-    type: "line",
+    type: "bar",
     data: {
         labels: [
-            "V Dec 10",
-            "S Dec 11",
-            "D Dec 12",
-            "L Dec 13",
-            "M Dec 14",
-            "X Dec 15",
-            "J Dec 16",
-            "V Dec 17",
-            "S Dec 18",
-            "D Dec 19",
-            "L Dec 20",
-            "M Dec 21",
-            "X Dec 22",
-            "J Dec 23",
+            "Aprendizaje",
+            "Familia",
+            "Idiomas",
+            "Migración",
+            "Personal",
+            "Profesional",
+            "Relaciones",
+            "Salud",
         ],
         datasets: [{
-            label: "",
+            label: "Saturación por meta",
             data: [12, 19, 3, 5, 2, 3, 4, 6, 8, 19, 2, 6, 8, 15],
             backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
@@ -1107,4 +1087,4 @@ const myChart2 = new Chart(ctx2, {
             },
         },
     },
-});*/
+});
